@@ -1,0 +1,10 @@
+{
+  "name": "RabbitMQ-NODEJS",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/alexaung/RabbitMQ-NODEJS.git",
+  "license": "MIT",
+  "dependencies": {
+    "amqplib": "^0.10.3"
+  }
+}

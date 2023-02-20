@@ -1,0 +1,29 @@
+# Logs
+logs
+*.log
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm/
+
+# Environment variables file
+.env
+
+# Visual Studio Code settings
+.vscode/
+
+# macOS folder attributes
+.DS_Store
+
+# Editor backup files
+*~
+
+# Ignore build output
+dist/
+
+# Ignore config files
+config/
+
+# Ignore any other files you don't want in the repository
