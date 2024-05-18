@@ -12,9 +12,12 @@ async function produceMessage(message) {
     await channel.assertQueue(queue, { durable: true });
     await channel.bindQueue(queue, exchange, key);
 
+    // Basic
     // const messageBuffer = Buffer.from(message);
     // channel.publish(exchange, key, messageBuffer);
     // console.log(`Message sent: ${message}`);
+
+    // Competing Consumers Implementation
     for (let i = 0; i < 10; i++) {  // Sending 10 messages
       const message = `Message ${i + 1}`;
       const messageBuffer = Buffer.from(message);

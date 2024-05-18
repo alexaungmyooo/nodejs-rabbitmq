@@ -12,11 +12,13 @@ async function consumeMessage() {
     await channel.assertQueue(queue, { durable: true });
     await channel.bindQueue(queue, exchange, key);
 
+    //Basic
     // channel.consume(queue, (msg) => {
     //   console.log(`Message received: ${msg.content.toString()}`);
     //   channel.ack(msg);
     // }, { noAck: false });
 
+    //Competing Consumers C# Implementation
     channel.consume(queue, (msg) => {
       if (msg !== null) {
         console.log(`Message received: ${msg.content.toString()}`);
