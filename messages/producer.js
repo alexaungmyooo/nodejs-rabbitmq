@@ -13,7 +13,7 @@ async function produceMessage(message) {
     await channel.bindQueue(queue, exchange, key);
 
     const messageBuffer = Buffer.from(message);
-    await channel.publish(exchange, key, messageBuffer);
+    channel.publish(exchange, key, messageBuffer);
     console.log(`Message sent: ${message}`);
     //await rabbitmq.close();
     await channel.waitForConfirms();
