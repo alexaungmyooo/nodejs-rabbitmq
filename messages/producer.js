@@ -12,10 +12,16 @@ async function produceMessage(message) {
     await channel.assertQueue(queue, { durable: true });
     await channel.bindQueue(queue, exchange, key);
 
-    const messageBuffer = Buffer.from(message);
-    channel.publish(exchange, key, messageBuffer);
-    console.log(`Message sent: ${message}`);
-    //await rabbitmq.close();
+    // const messageBuffer = Buffer.from(message);
+    // channel.publish(exchange, key, messageBuffer);
+    // console.log(`Message sent: ${message}`);
+    for (let i = 0; i < 10; i++) {  // Sending 10 messages
+      const message = `Message ${i + 1}`;
+      const messageBuffer = Buffer.from(message);
+      channel.publish(exchange, key, messageBuffer, { persistent: true });
+      console.log(`Message sent: ${message}`);
+    }
+
     await channel.waitForConfirms();
     await rabbitmq.close();
   } catch (error) {
